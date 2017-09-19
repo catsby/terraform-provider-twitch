@@ -4,7 +4,6 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
@@ -36,8 +35,6 @@ func dataSourceTwitchUserRead(d *schema.ResourceData, meta interface{}) error {
 		log.Fatalf("Error finding me: %s", err)
 	}
 
-	log.Printf("what is me: %s", spew.Sdump(me))
-	log.Printf("got here")
 	d.Set("user_id", me.Id)
 	d.Set("display_name", me.DisplayName)
 	d.SetId(strconv.Itoa(me.Id))

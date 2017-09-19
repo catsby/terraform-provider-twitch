@@ -5,7 +5,6 @@ import (
 	"strconv"
 
 	"github.com/catsby/go-twitch/twitch"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
@@ -41,13 +40,12 @@ func dataSourceTwitchChannelRead(d *schema.ResourceData, meta interface{}) error
 			chInput.Id = id
 		}
 	}
+
 	output, err := client.GetChannel(&chInput)
 	if err != nil {
 		log.Fatalf("Error finding channel: %s", err)
 	}
 
-	log.Printf("what is channel: %s", spew.Sdump(output))
-	log.Printf("got here")
 	d.Set("channel_id", output.Channel.Id)
 	d.Set("display_name", output.Channel.DisplayName)
 	d.Set("url", output.Channel.HTMLURL)
