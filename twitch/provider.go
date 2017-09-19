@@ -19,7 +19,8 @@ func Provider() terraform.ResourceProvider {
 			},
 		},
 		DataSourcesMap: map[string]*schema.Resource{
-			"twitch_user": dataSourceTwitchUser(),
+			"twitch_user":    dataSourceTwitchUser(),
+			"twitch_channel": dataSourceTwitchChannel(),
 		},
 
 		ConfigureFunc: providerConfigure,
