@@ -1,6 +1,8 @@
 Terraform Provider Twitch
 ==================
 
+*Very alpha*. Usable, but could change.
+
 - Website: https://www.terraform.io
 
 Requirements
